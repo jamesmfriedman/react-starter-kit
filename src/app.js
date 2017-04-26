@@ -1,19 +1,23 @@
 import 'raw-loader!./index.ejs';
+import { AppContainer } from 'react-hot-loader';
+import { App } from './components/app.component';
 
-function formatName(user) {
-	return user.firstName + ' ' + user.lastName;
-}
+console.log(process.env);
 
-const user = {
-	firstName: 'James',
-	lastName: 'Friedman'
+const render = Component => {
+	ReactDOM.render(
+		<AppContainer>
+			<Component/>
+		</AppContainer>,
+		document.getElementById('root')
+	);
 };
 
-const element = (
-	<h1>Hello, {formatName(user)}!</h1>
-);
+render(App);
 
-ReactDOM.render(
-	element,
-	document.getElementById('root')
-);
+// Hot Module Replacement API
+if (module.hot) {
+	module.hot.accept('./components/app.component', () => {
+		render(App);
+	});
+}

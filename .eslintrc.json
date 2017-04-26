@@ -17,7 +17,8 @@
     "import",
     "node",
     "promise",
-    "standard"
+    "standard",
+    "react"
   ],
 
   "globals": {
@@ -29,6 +30,7 @@
   },
 
   "rules": {
+    "react/jsx-uses-vars": "error",
     "accessor-pairs": "off",
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "block-spacing": ["error", "always"],
@@ -46,7 +48,7 @@
     "constructor-super": "error",
     "curly": ["error", "multi-line"],
     "dot-location": ["error", "property"],
-    "eol-last": "error",
+    "eol-last": "off",
     "eqeqeq": ["error", "always", { "null": "ignore" }],
     "func-call-spacing": ["error", "never"],
     "generator-star-spacing": ["error", { "before": true, "after": true }],
